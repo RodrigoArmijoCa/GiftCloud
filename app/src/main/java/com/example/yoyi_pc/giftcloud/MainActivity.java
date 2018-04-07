@@ -14,6 +14,7 @@ import android.os.Handler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -34,8 +35,15 @@ public class MainActivity extends AppCompatActivity {
         Runnable runnableCode = new Runnable() {
             @Override
             public void run() {
-                String variable = String.valueOf(JSONaEnviar.length());
-                Log.d("El largo del JSON es: ", variable);
+                //String variable = String.valueOf(JSONaEnviar.length());
+                int variable = 0;
+                try {
+                    variable = JSONaEnviar.toString().getBytes("UTF-8").length;
+
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                Log.d("El largo del JSON es: ", String.valueOf(variable));
                 handler.postDelayed(this, 1000);
             }
         };
