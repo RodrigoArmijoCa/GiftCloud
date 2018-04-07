@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GiftCloud</string>
+    <string name="title_activity_send_rest">sendRestActivity</string>
+</resources>
